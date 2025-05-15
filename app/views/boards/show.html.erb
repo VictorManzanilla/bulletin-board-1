@@ -1,8 +1,47 @@
 <div>
   <div>
     <h1>
-      Board #<%= @the_board.id %> details
+    <%= @the_board.name %> 
     </h1>
+
+    <hr>
+    <h2>
+  Add a new post
+</h2>
+
+<form action="/insert_post" method="post">
+  <div>
+    <label for="title_box">
+      Title
+    </label>
+
+    <input type="text" id="title_box" name="query_title">
+  </div>
+
+  <div>
+    <label for="body_box">
+      Body
+    </label>
+
+    <textarea id="body_box" name="query_body" rows="3"></textarea>
+  </div>
+
+  <div>
+    <label for="expires_on_box">
+      Expires on
+    </label>
+
+    <input type="date" id="expires_on_box" name="query_expires_on">
+  </div>
+
+  <input type="hidden" id="board_id_box" name="query_board_id" value="<%=@the_board.id %>">
+
+  <button>
+    Add post
+  </button>
+</form>
+
+<hr>
 
     <div>
       <div>
@@ -45,6 +84,40 @@
 
 <hr>
 
+
+<h2>Active posts</h2>
+
+<table border="1">
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Posted on</th>
+    <th>Expires on</th>
+  </tr>
+
+    <tr>
+      <td>Forward Officer</td>
+      <td>Voluptates condico tenetur. Vulgaris villa adstringo. Delibero celebrer acervus.
+
+Voluptatem defessus ars. Cibo urbs speculum. Peior textus beatus.
+
+Casso aptus comptus. Adeo ex defleo. Collum quisquam cauda.
+
+Adopto agnosco adhuc. Vero crepusculum sufficio. Condico attollo cedo.
+
+Tactus teneo coerceo. Varius corpus centum. Adeptio admitto totidem.</td>
+      <td>Apr 16, 2025</td>
+      <td>May 25, 2025</td>
+    </tr>
+    <tr>
+      <td>Lightweight Wooden Shirt</td>
+      <td>Maxime deduco doloremque. Peior clementia conscendo. Caritas eum eligendi.
+
+Demergo aggero desino. Optio coaegresco armarium. Praesentium casso culpa.</td>
+      <td>Apr  1, 2025</td>
+      <td>May 29, 2025</td>
+    </tr>
+    </table>
 
 <div>
   <div>
