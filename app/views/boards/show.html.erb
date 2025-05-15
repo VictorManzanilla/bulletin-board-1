@@ -87,6 +87,8 @@
 
 <h2>Active posts</h2>
 
+<%matching_posts = Post.where({ :board_id => @the_board.id})%>
+
 <table border="1">
   <tr>
     <th>Title</th>
@@ -94,51 +96,13 @@
     <th>Posted on</th>
     <th>Expires on</th>
   </tr>
-
+<% matching_posts.each do |post|%>
     <tr>
-      <td>Forward Officer</td>
-      <td>Voluptates condico tenetur. Vulgaris villa adstringo. Delibero celebrer acervus.
-
-Voluptatem defessus ars. Cibo urbs speculum. Peior textus beatus.
-
-Casso aptus comptus. Adeo ex defleo. Collum quisquam cauda.
-
-Adopto agnosco adhuc. Vero crepusculum sufficio. Condico attollo cedo.
-
-Tactus teneo coerceo. Varius corpus centum. Adeptio admitto totidem.</td>
+      <td><%=post.title%></td>
+      <td><%=post.body%></td>
       <td>Apr 16, 2025</td>
       <td>May 25, 2025</td>
     </tr>
-    <tr>
-      <td>Lightweight Wooden Shirt</td>
-      <td>Maxime deduco doloremque. Peior clementia conscendo. Caritas eum eligendi.
-
-Demergo aggero desino. Optio coaegresco armarium. Praesentium casso culpa.</td>
-      <td>Apr  1, 2025</td>
-      <td>May 29, 2025</td>
-    </tr>
-    </table>
-
-<div>
-  <div>
-    <h2>
-      Edit board
-    </h2>
-
-    <form action="/modify_board/<%= @the_board.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_board.name %>">
-      </div>
-
-      <button>
-        Update board
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr>
+    <%end%>
+  </table>
+     
